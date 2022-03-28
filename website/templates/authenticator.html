@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+
+<head>
+    <script>
+function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("google_token");
+  // Get the output text
+  var text = document.getElementById("text");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+
+function myFunction1() {
+  // Get the checkbox
+  var checkBox = document.getElementById("telegram_token");
+  // Get the output text
+  var text = document.getElementById("text1");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+
+function myFunction2() {
+  // Get the checkbox
+  var checkBox = document.getElementById("email_token");
+  // Get the output text
+  var text = document.getElementById("text2");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+}
+    </script>
+</head>
+
+<form method="POST">
+  <h3 align="center">Sign Up</h3>
+    <div class="form-group">
+  Google Authenticator <input type="checkbox" id="google_token" name="google_token" onclick="myFunction()" class="tocheck-true">
+    <p id="text" class="form-control" value="{{ secret }}" readonly style="display:none">{{ secret }} </p>
+        </div>
+
+
+
+  <h3 align="center"></h3>
+    <div class="form-group">
+  Telegram <input type="checkbox" id="telegram_token" name="telegram_token" onclick="myFunction1()" class="tocheck-true">
+    <p id="text1" class="form-control" value="{{ secret }}" readonly style="display:none">{{ secret }} </p>
+        </div>
+
+
+    <h3 align="center"></h3>
+    <div class="form-group">
+  E-mail <input type="checkbox" id="email_token" name="email_token" onclick="myFunction2()" class="tocheck-true">
+    <p id="text2" class="form-control" value="{{ secret }}" readonly style="display:none">{{ secret }} </p>
+        </div>
+  <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+
+</form>
+
+{% endblock %}
